@@ -1,0 +1,16 @@
+[Unit]
+Description=NEARd Daemon Service
+
+[Service]
+Type=simple
+User=nearnodeuser
+WorkingDirectory=/home/nearnodeuser/.near
+ExecStart=/home/nearnodeuser/nearcore/target/release/neard run
+Restart=on-failure
+RestartSec=30
+KillSignal=SIGINT
+TimeoutStopSec=45
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
